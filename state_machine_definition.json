@@ -1,0 +1,38 @@
+{
+  "Comment": "Serverless Image Processing Pipeline - Resize Thumbnail",
+  "StartAt": "ResizeImage",
+  "States": {
+    "ResizeImage": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:ca-central-1:6950-8523-9748:function:resize-image-lambda",
+      "Parameters": {
+        "bucket.$": "$.bucket",
+        "key.$": "$.key",
+        "dest_bucket.$": "$.dest_bucket",
+        "width.$": "$.width",
+        "height.$": "$.height"
+      },
+      "ResultPath": "$.resizeResult",
+      "Next": "WasResizeSuccessful"
+    },
+    "WasResizeSuccessful": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.resizeResult.status",
+          "StringEquals": "SUCCESS",
+          "Next": "SuccessState"
+        }
+      ],
+      "Default": "FailState"
+    },
+    "SuccessState": {
+      "Type": "Succeed"
+    },
+    "FailState": {
+      "Type": "Fail",
+      "Cause": "Image resize failed",
+      "Error": "ResizeFailure"
+    }
+  }
+}
