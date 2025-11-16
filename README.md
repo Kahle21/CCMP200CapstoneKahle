@@ -1,4 +1,4 @@
-CCMP200CapstoneKahle
+CCMP200CapstoneKahle  
 Serverless Image Processing Pipeline (CCMP200 Capstone)
 
 This project implements a serverless image processing pipeline on AWS.
