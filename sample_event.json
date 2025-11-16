@@ -1,0 +1,7 @@
+{
+  "bucket": "ccmp200-original-images-kahle",
+  "key": "elepahnt.jpg",
+  "dest_bucket": "ccmp200-resized-images-kahle",
+  "width": 200,
+  "height": 200
+}
