@@ -18,7 +18,6 @@ in a separate S3 bucket.
 
 ## High-Level Architecture
 
-```text
 Client (HTTP POST)
        |
        v
