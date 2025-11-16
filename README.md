@@ -16,15 +16,7 @@ Demonstrate logging, orchestration, and HTTP-based invocation of a serverless wo
 
 2. High-Level Architecture
 2.1 Diagram
-Client (HTTP POST)
-       |
-       v
-+--------------+       +---------------------+       +--------------------+        +-------------------------+
-| API Gateway  |  ---> | Step Functions      | --->  | Lambda (Pillow)    |  --->  | S3 (Resized Thumbnails) |
-+--------------+       +---------------------+       +--------------------+        +-------------------------+
-                                 ^
-                                 |
-                            CloudWatch Logs
+Client (HTTP POST)→ API Gateway → Step Functions → Lambda → S3 (thumbnails), with all activity logged in CloudWatch.
 
 
 2.2 Flow Summary
