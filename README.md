@@ -26,6 +26,7 @@ Client (HTTP POST)
                                  |
                             CloudWatch Logs
 
+
 2.2 Flow Summary
 
 Client sends an HTTP POST request to the API Gateway /process-image endpoint.
